@@ -70,6 +70,6 @@ C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\b
 C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\obj\Debug\Coffee-MVC-DoAn.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\obj\Debug\Coffee-MVC-DoAn.dll
 C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\obj\Debug\Coffee-MVC-DoAn.pdb
+C:\Users\Admin\Downloads\MVC\baitapMVCThayPhet\Coffee-MVC-DoAn\Coffee-MVC-DoAn\obj\Debug\Coffee-MVC-DoAn.csprojResolveAssemblyReference.cache

@@ -12,21 +12,21 @@ namespace Coffee_MVC_DoAn.Controllers
         public List<Giohang> Laygiohang()
         {
             List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
-            if(lstGiohang==null)
+            if (lstGiohang == null)
             {
                 lstGiohang = new List<Giohang>();
                 Session["Giohang"] = lstGiohang;
             }
             return lstGiohang;
         }
-       
+
         // GET: Giohang
         public ActionResult Index()
         {
             return View();
         }
         //Them hang vao gio
-        public ActionResult ThemGiohang(int iMaCF, string strURL) 
+        public ActionResult ThemGiohang(int iMaCF, string strURL)
         {
             //Lay ra session gio hang
             List<Giohang> lstGiohang = Laygiohang();
@@ -71,17 +71,17 @@ namespace Coffee_MVC_DoAn.Controllers
             {
                 return RedirectToAction("Index", "Coffee");
             }
-            ViewBag.Tongsoluong = TongSoLuong();        
+            ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
-      
-         public ActionResult GiohangPartial()
-         {
-              ViewBag.Tongsoluong = TongSoLuong();
-                 ViewBag.Tongtien = TongTien();
-              return PartialView();
-         }
+
+        public ActionResult GiohangPartial()
+        {
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+            return PartialView();
+        }
         public ActionResult XoaGiohang(int iMaSP)
         {
             List<Giohang> lstGiohang = Laygiohang();
@@ -107,12 +107,12 @@ namespace Coffee_MVC_DoAn.Controllers
             }
             return RedirectToAction("Giohang");
         }
-        //public ActionResult XoaTatcaGiohang()
-        //{
-        //    List<Giohang> lstGiohang = Laygiohang();
-        //    lstGiohang.Clear();
-        //    return RedirectToAction("Index", "BookStore");
-        //}
+        public ActionResult XoaTatcaGiohang()
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+            lstGiohang.Clear();
+            return RedirectToAction("Index", "Coffee");
+        }
         //[HttpGet]
         //public ActionResult DatHang()
         //{
@@ -164,5 +164,6 @@ namespace Coffee_MVC_DoAn.Controllers
         //{
         //    return View();
         //}
+    
     }
 }

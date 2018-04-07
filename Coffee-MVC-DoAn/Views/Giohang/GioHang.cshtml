@@ -53,6 +53,11 @@
                     <th>Tổng cộng: </th>
                     <th colspan="2" class="total">@String.Format("{0:0,0}", ViewBag.Tongtien) đ</th>
                 </tr>
+                <tr>
+                    <th class="empty" colspan="3"></th>
+                    <th>Xóa giỏ hàng: </th>
+                    <th colspan="2" class="total">@Html.ActionLink("Xóa Giỏ Hàng", "XoaTatcaGiohang")</th>
+                </tr>
             </tfoot>
         </table>
         <div class="pull-right">

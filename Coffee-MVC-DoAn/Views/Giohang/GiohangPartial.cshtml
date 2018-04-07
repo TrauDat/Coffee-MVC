@@ -1,7 +1,8 @@
 ﻿
 	<!-- Cart -->
 <li class="header-cart dropdown default-dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+ 
+      <a href="@Url.Action("Giohang","Giohang")"  >
         <div class="header-btns-icon">
             <i class="fa fa-shopping-cart"></i>
             <span class="qty">@ViewBag.Tongsoluong</span>
@@ -10,6 +11,7 @@
         <br>
         <span>@ViewBag.Tongtien</span>
     </a>
+
     @*<div class="custom-menu">
         <div id="shopping-cart">
             <div class="shopping-cart-list">
