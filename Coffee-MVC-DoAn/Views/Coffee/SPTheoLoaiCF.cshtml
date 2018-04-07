@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Coffee_MVC_DoAn.Models.COFFEE>
+@{
+    ViewBag.Title = "SPTheoLoaiCF";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center; color:red">Sản phẩm theo loại Cà phê</h2>
+
+<div class="row">
+    @foreach (var coffee in Model)
+    {
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <div class="product product-single">
+
+                <div class="product-thumb">
+                    <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+                    <a href="@Url.Action("Details", "Coffee", new { id = coffee.MaCF})">
+                        <img alt="@coffee.TenCF" src="~/Hinhsanpham/@coffee.Anhbia" />
+
+
+                </div>
+                <div class="product-body">
+                    <h3 class="product-price">@coffee.Giaban</h3>   
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o empty"></i>
+                    </div>
+                    <h2 class="product-name"><a href="#">@coffee.TenCF</a></h2>
+                    <div class="product-btns">
+                        <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                        <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

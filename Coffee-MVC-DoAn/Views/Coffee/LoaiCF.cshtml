@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Coffee_MVC_DoAn.Models.LOAICF>
+
+<div class="category-nav">
+   
+    <ul class="category-list">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("SPTheoLoaiCF","Coffee", new { id = item.MaLoai})" class="list-group-item">
+                @item.TenLoai
+            </a>
+        }
+    </ul>
+</div>
+<!-- /category nav -->
