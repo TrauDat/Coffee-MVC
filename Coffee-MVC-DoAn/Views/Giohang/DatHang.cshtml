@@ -1,0 +1,99 @@
+﻿@using Coffee_MVC_DoAn.Models
+@{
+    ViewBag.Title = "ĐƠN ĐẶT HÀNG";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="order-summary clearfix">
+        <div class="section-title">
+            <h3 class="title">THÔNG TIN HÀNG HÓA</h3>
+        </div>
+        <table class="shopping-cart-table table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th class="text-center">Giá</th>
+                    <th class="text-center">Số lượng</th>
+                    <th class="text-center">Tổng cộng</th>
+                    <th class="text-right"></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td class="thumb"><img src="~/Hinhsanpham//@item.sAnhbia" alt=""></td>
+                        <td class="details">
+                            <a href="#">@item.sTenCF</a>
+                        </td>
+                        @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSP = item.iMaCF }))
+                        {
+                            <td class="price text-center"><strong>@String.Format("{0:0,0}", item.dDongia)</strong></td>
+                            <td class="qty text-center"><input class="input" type="number" min="1" name="txtSoluong" value="@item.iSoluong"></td>
+                            <td class="total text-center"><strong class="primary-color">@String.Format("{0:0,0}", item.dThanhtien)</strong></td>
+                        }
+                    </tr>
+                </tbody>
+            }
+
+            <tfoot>
+                <tr>
+                    <th class="empty" colspan="3"></th>
+                    <th>Số lượng SP: </th>
+                    <th colspan="2" class="sub-total">@ViewBag.Tongsoluong</th>
+                </tr>
+                <tr>
+                    <th class="empty" colspan="3"></th>
+                    <th>Tổng cộng: </th>
+                    <th colspan="2" class="total">@String.Format("{0:0,0}", ViewBag.Tongtien) đ</th>
+                </tr>
+                <tr>
+                    <th class="empty" colspan="3"></th>
+                    <th>Trở về: </th>
+                    <th colspan="2" class="total">@Html.ActionLink("TRỞ VỀ GIỎ HÀNG", "Giohang", "GioHang")</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+}
+<!-- container -->
+<table class="table table-dark" >
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <thead>
+            <tr>
+                <th scope="col">Họ tên khách hàng</th>
+                <th scope="col">Địa chỉ</th>
+                <th scope="col">Điện thoại</th>
+                <th scope="col">Ngày đặt</th>
+                <th scope="col">Ngày giao hàng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">@kh.HoTen</td>
+                <td>@kh.DiachiKH</td>
+                <td>@kh.DienthoaiKH</td>
+                <td>@DateTime.Now.ToShortDateString()</td>
+                <td><input type="date" name="Ngaygiao" /></td>
+            </tr>
+        </tbody>
+        <tr >
+            <td class="btn-block">
+                <input  type="submit" value="ĐỒNG Ý ĐẶT HÀNG" />
+            </td>
+        </tr>
+
+
+    }
+</table>

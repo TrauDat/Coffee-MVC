@@ -98,9 +98,8 @@ namespace Coffee_MVC_DoAn.Controllers
                 KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.Taikhoan == tendn && n.Matkhau == matkhau);
                 if (kh != null)
                 {
-                    ViewBag.Thongbao = "Chúc mừng bạn đăng nhập thành công";
                     Session["Taikhoan"] = kh;
-                    //return RedirectToAction("Index", "Coffee");
+                    return RedirectToAction("Index", "Coffee");
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";

@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Coffee_MVC_DoAn.Models;
 
+using PagedList;
+using PagedList.Mvc;
+
 namespace Coffee_MVC_DoAn.Controllers
 {
     public class CoffeeController : Controller
@@ -15,10 +18,12 @@ namespace Coffee_MVC_DoAn.Controllers
         {
             return data.COFFEEs.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var spmoi = Layspmoi(5);
-            return View(spmoi);
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
+            var spmoi = Layspmoi(15);
+            return View(spmoi.ToPagedList(pageNum,pageSize));
         }
         public ActionResult LoaiCF()
         {

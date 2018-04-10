@@ -113,57 +113,57 @@ namespace Coffee_MVC_DoAn.Controllers
             lstGiohang.Clear();
             return RedirectToAction("Index", "Coffee");
         }
-        //[HttpGet]
-        //public ActionResult DatHang()
-        //{
-        //    if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
-        //    {
-        //        return RedirectToAction("Dangnhap", "Nguoidung");
-        //    }
-        //    if (Session["Giohang"] == null)
-        //    {
-        //        return RedirectToAction("Index", "BookStore");
-        //    }
-        //    List<Giohang> lstGiohang = Laygiohang();
-        //    ViewBag.Tongsoluong = TongSoLuong();
-        //    ViewBag.Tongtien = TongTien();
-        //    return View(lstGiohang);
-        //}
-        //public ActionResult DatHang(FormCollection collection)
-        //{
-        //    DONDATHANG ddh = new DONDATHANG();
-        //    KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
-        //    List<Giohang> gh = Laygiohang();
-        //    ddh.MaKH = kh.MaKH;
-        //    ddh.Ngaydat = DateTime.Now;
-        //    var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
-        //    ddh.Ngaygiao = DateTime.Parse(ngaygiao);
-        //    ddh.Tinhtranggiaohang = false;
-        //    ddh.Dathanhtoan = false;
-        //    data.DONDATHANGs.InsertOnSubmit(ddh);
-        //    data.SubmitChanges();
-        //    foreach (var item in gh)
-        //    {
-        //        CHITIETDONTHANG ctdh = new CHITIETDONTHANG();
-        //        ctdh.MaDonHang = ddh.MaDonHang;
-        //        ctdh.Masach = item.iMasach;
-        //        ctdh.Soluong = item.iSoluong;
-        //        ctdh.Dongia = (decimal)item.dDongia;
-        //        data.CHITIETDONTHANGs.InsertOnSubmit(ctdh);
-        //    }
-        //    data.SubmitChanges();
-        //    Session["Giohang"] = null;
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("Dangnhap", "Nguoidung");
+            }
+            if (Session["Giohang"] == null)
+            {
+                return RedirectToAction("Index", "Coffee");
+            }
+            List<Giohang> lstGiohang = Laygiohang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+            return View(lstGiohang);
+        }
+        public ActionResult DatHang(FormCollection collection)
+        {
+            DONDATHANG ddh = new DONDATHANG();
+            KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+            List<Giohang> gh = Laygiohang();
+            ddh.MaKH = kh.MaKH;
+            ddh.Ngaydat = DateTime.Now;
+            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
+            ddh.Ngaygiao = DateTime.Parse(ngaygiao);
+            ddh.Tinhtranggiaohang = false;
+            ddh.Dathanhtoan = false;
+            data.DONDATHANGs.InsertOnSubmit(ddh);
+            data.SubmitChanges();
+            foreach (var item in gh)
+            {
+                CHITIETDONHANG ctdh = new CHITIETDONHANG();
+                ctdh.MaDonHang = ddh.MaDonHang;
+                ctdh.MaCF = item.iMaCF;
+                ctdh.Soluong = item.iSoluong;
+                ctdh.Dongia = (decimal)item.dDongia;
+                data.CHITIETDONHANGs.InsertOnSubmit(ctdh);
+            }
+            data.SubmitChanges();
+            Session["Giohang"] = null;
 
-        //    return RedirectToAction("Xacnhandonhang", "Giohang");
-        //}
-        //public ActionResult Xacnhandonhang()
-        //{
-        //    return View();
-        //}
+            return RedirectToAction("Xacnhandonhang", "Giohang");
+        }
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
+        }
         //public ActionResult Index()
         //{
         //    return View();
         //}
-    
+
     }
 }
